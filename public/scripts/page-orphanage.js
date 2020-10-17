@@ -26,7 +26,6 @@ const icon = L.icon({
 
 })
 
-//Criar popup overlay
 
 
 
@@ -41,12 +40,26 @@ function selectImage(event){
     
     /*Remover Classe active*/
 const buttons = document.querySelectorAll(".images button")
+buttons.forEach(removeActiveClass) //para cada botão ele vai fazer essa ação
+
+
+function removeActiveClass(button){
+    button.classList.remove("active")
+
+
+}
+
+
 console.log(buttons)
 
     //selecionar a imagem clicada
 
+    const image = button.children[0]
+    const imageContainer = document.querySelector(".orphanage-details > img")
+
+
     // atualizar o container de imagem
-
+imageContainer.src = image.src
     // adicionar a classe .active para o botao clicado
-
+     button.classList.add("active")
 }
