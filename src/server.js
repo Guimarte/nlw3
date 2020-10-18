@@ -5,6 +5,10 @@ const path = require('path')
 const server = express()
 const pages = require('./pages.js')
 server
+
+//utilizar body do req
+
+.use(express.urlencoded({ extended: true}))
 .use(express.static('public'))
 // configurar template engfine
 
@@ -16,7 +20,7 @@ server
 .get('/create-orphanage', (pages.createOrphanage))
 .get('/orphanages', (pages.orphanages))
 .get('/orphanage', (pages.orphanage))
-
+.post('/save-orphanage',pages.saveOrphanage)
     //return  response.sendFile(path.join(__dirname, 'views'))
 
 //ligar o servidor

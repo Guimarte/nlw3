@@ -5,14 +5,17 @@ const options = {
     scrollWheelZoom: false,
     zoomControl:false
 }
+//get values from html
+const lat = document.querySelector('[data-lat]').dataset.lat
+const lng = document.querySelector('[data-lng]').dataset.lng
 
-
-
-let map = L.map('mapid', options).setView([ -23.413 , -46.4445], 15);
+let map = L.map('mapid', options).setView([ lat , lng], 15);
 
 
 
 //Cria e add um tileLayer
+
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
@@ -29,8 +32,9 @@ const icon = L.icon({
 
 
 
+
 //Cria e add um marcador
-L.marker([-23.413 , -46.4445], {icon}).addTo(map)
+L.marker([lat ,lng], {icon}).addTo(map)
     
     
 
